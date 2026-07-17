@@ -4,189 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A2A43">
     <title>Yasir Hamed - Full-Stack Web Developer Portfolio</title>
 
     <!-- SEO -->
     <meta name="description"
-        content="Yasir Hamed - Full-Stack Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP.">
-    <meta name="keywords" content="Yasir Hamed, Full-Stack Developer, HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP Portfolio">
+        content="Yasir Hamed - Full-Stack Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap.">
+    <meta name="keywords" content="Yasir Hamed, Full-Stack Developer, HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap Portfolio">
     <meta name="author" content="Yasir Hamed">
 
     <!-- Open Graph (social share preview) -->
     <meta property="og:title" content="Yasir Hamed - Full-Stack Web Developer">
     <meta property="og:description"
-        content="Modern, responsive and user-friendly websites built with HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP">
+        content="Modern, responsive and user-friendly websites built with HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap.">
     <meta property="og:type" content="website">
 
-    <!-- Favicon - inline SVG monogram, koi image file download nahi karni padi -->
+    <!-- Favicon - inline SVG monogram, no image file needed -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A2A43'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232E7BFF' text-anchor='middle'%3EYH%3C/text%3E%3C/svg%3E">
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome (Tech Stack icons ke liye) -->
+    <!-- Font Awesome (tech stack icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Background Image lagane ke liye class */
-        .bg-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            /* Image screen par stretch nahi hogi */
-            z-index: -2;
-            /* Sabse peeche */
-
-            /* Blur control yahan se hoga */
-            filter: blur(0px);
-            /* Blur kam ya zyada karne ke liye px badlein */
-            opacity: 1;
-            /* Hamesha 0 se 1 ke beech rahe, "10" invalid tha */
-        }
-
-        /* Vignette / fade overlay - image ke upar, content ke peeche */
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            /* clicks isse guzar jayen, image/buttons kaam karein */
-
-            /* Left side dense fade, right side pura transparent - theme ke hisaab se rang badalta hai */
-            background: linear-gradient(to right,
-                    var(--overlay-1) 0%,
-                    var(--overlay-2) 40%,
-                    var(--overlay-3) 100%);
-            transition: background 0.4s ease;
-        }
-
-        /* Taake text background ke upar bilkul clear nazar aaye */
-        body {
-            position: relative;
-            margin: 0;
-            padding: 0;
-            background-color: var(--color-bg);
-            /* Agar image load na ho to safe backup color */
-        }
-
-        .bg-background {
-            transition: opacity 0.4s ease, filter 0.4s ease;
-        }
-
-        [data-theme="dark"] .bg-background {
-            opacity: 0.5;
-            filter: brightness(0.6);
-        }
-
-        /* Mobile par vignette pura solid kar dete hain warna text mushkil se dikhta hai */
-        @media (max-width: 768px) {
-            .bg-overlay {
-                background: var(--overlay-mobile);
-            }
-        }
-
-        /* ===================== Tech Stack - Stylish Grid ===================== */
-        #skills {
-            padding: 4rem 1.5rem;
-        }
-
-        #skills h2 {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.25rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .skill-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.7rem;
-            padding: 1.8rem 1rem;
-            border-radius: 16px;
-            text-align: center;
-
-            background: var(--skill-card-bg, rgba(255, 255, 255, 0.55));
-            border: 1px solid var(--skill-card-border, rgba(10, 42, 67, 0.1));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-        }
-
-        .skill-card i,
-        .skill-card .skill-icon {
-            font-size: 2.6rem;
-            line-height: 1;
-            transition: transform 0.35s ease;
-        }
-
-        .skill-card h3 {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 12px 28px rgba(46, 123, 255, 0.25);
-            border-color: #2E7BFF;
-        }
-
-        .skill-card:hover i,
-        .skill-card:hover .skill-icon {
-            transform: scale(1.15) rotate(-4deg);
-        }
-
-        /* Brand colors on hover for a lively touch */
-        .skill-card.html:hover i { color: #E44D26; }
-        .skill-card.css:hover i { color: #264DE4; }
-        .skill-card.js:hover i { color: #F0DB4F; }
-        .skill-card.node:hover i { color: #3C873A; }
-        .skill-card.jquery:hover i { color: #0769AD; }
-        .skill-card.php:hover i { color: #777BB4; }
-        .skill-card.bootstrap:hover i { color: #7952B3; }
-
-        [data-theme="dark"] .skill-card {
-            background: var(--skill-card-bg-dark, rgba(20, 25, 35, 0.55));
-            border-color: rgba(255, 255, 255, 0.08);
-        }
-
-        [data-theme="dark"] .skill-card h3 {
-            color: #f1f1f1;
-        }
-
-        @media (max-width: 480px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <img src="yasirhm.jpeg" class="bg-background" alt="Background Blur">
+    <img src="yasirhm.jpeg" class="bg-background" alt="" aria-hidden="true">
     <div class="bg-overlay"></div>
 
     <header>
@@ -212,29 +62,31 @@
 
     <main>
         <section id="home">
-            <div>
-                <img src="yasirh.jpeg" alt="Yasir Hamed">
+            <div class="home-photo">
+                <img src="yasirh.jpeg" alt="Portrait of Yasir Hamed">
             </div>
             <div>
-                <p>Hello, I'm</p>
+                <p class="eyebrow">Hello, I'm</p>
                 <h2>Yasir Hamed</h2>
                 <h3>Full-Stack Web Developer</h3>
                 <p>
                     I build modern, responsive and user-friendly websites
-                    using HTML5, CSS3 JavaScript, Node.js, JQUERY, PHP, BOOTSTRAP.
+                    using HTML5, CSS3, JavaScript, Node.js, jQuery, PHP and Bootstrap.
                 </p>
-                <a href="#projects">View Projects</a>
-                <a href="#contact">Hire Me</a>
-                <a href="yasirhamedresume.pdf" download class="btn-resume">📄 Download CV</a>
+                <div class="hero-actions">
+                    <a href="#projects">View Projects</a>
+                    <a href="#contact">Hire Me</a>
+                    <a href="yasirhamedresume.pdf" download class="btn-resume">📄 Download CV</a>
+                </div>
             </div>
         </section>
 
         <section id="about">
             <h2 class="reveal">About Me</h2>
             <p class="reveal">
-                I am a Full-Stack Web Developr <strong>Web Developer</strong> who enjoys <br> creating
-                responsive and interactive websites <br> using HTML,
-                CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP.
+                I'm a Full-Stack <strong>Web Developer</strong> who enjoys
+                creating responsive and interactive websites using
+                HTML, CSS, JavaScript, Node.js, jQuery, PHP and Bootstrap.
             </p>
         </section>
 
@@ -258,7 +110,7 @@
                     <h3>Node.js</h3>
                 </article>
                 <article class="skill-card jquery reveal">
-                    <span class="skill-icon" style="font-weight:700; font-size:1.6rem;">jQ</span>
+                    <span class="skill-icon">jQ</span>
                     <h3>jQuery</h3>
                 </article>
                 <article class="skill-card php reveal">
@@ -274,34 +126,36 @@
 
         <section id="projects">
             <h2 class="reveal">My Projects</h2>
-            <article class="reveal">
-                <h3>Portfolio Website</h3>
-                <p>Personal responsive portfolio website.</p>
-            </article>
-            <article class="reveal">
-                <h3>Landing Page</h3>
-                <p>Modern and responsive landing page.</p>
-            </article>
-            <article class="reveal">
-                <h3>Business Website</h3>
-               <a href="https://hami-store.netlify.app/" target="_blank">
-        <img src="project.jpeg" alt="E-Commerce Store" height="100">
-      </a>
-            </article>
+            <div class="projects-grid">
+                <article class="reveal">
+                    <h3>Portfolio Website</h3>
+                    <p>Personal responsive portfolio website.</p>
+                </article>
+                <article class="reveal">
+                    <h3>Landing Page</h3>
+                    <p>Modern and responsive landing page.</p>
+                </article>
+                <article class="reveal">
+                    <h3>Business Website</h3>
+                    <p>E-commerce style storefront with product listings.</p>
+                    <a href="https://hami-store.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <img src="project.jpeg" alt="Business e-commerce storefront preview" loading="lazy">
+                        <span>Visit Site →</span>
+                    </a>
+                </article>
+            </div>
         </section>
 
         <section id="contact">
             <h2 class="reveal">Contact Me</h2>
             <div class="contact-card reveal">
-                <p> <strong>Phone:</strong> 0335-6446210</p>
-                <p> <strong>Email:</strong> hamiimalik84@gmail.com</p>
+                <p><strong>Phone:</strong> 0335-6446210</p>
+                <p><strong>Email:</strong> hamiimalik84@gmail.com</p>
 
                 <div class="contact-buttons">
-                    <a href="tel:03356446210" class="btn call"> Call Now</a>
-                    <a href="mailto:hamiimalik84@gmail.com" class="btn email"> Email Me</a>
-                    <a href="https://wa.me/923279717049" target="_blank" class="btn whatsapp">
-                         WhatsApp
-                    </a>
+                    <a href="tel:03356446210" class="btn call">Call Now</a>
+                    <a href="mailto:hamiimalik84@gmail.com" class="btn email">Email Me</a>
+                    <a href="https://wa.me/923279717049" target="_blank" rel="noopener noreferrer" class="btn whatsapp">WhatsApp</a>
                 </div>
 
                 <div class="social-links">
@@ -325,9 +179,7 @@
     </main>
 
     <footer>
-        <p>
-            ©️ 2026 Yasir Hamed | Frontend Web Developer
-        </p>
+        <p>© 2026 Yasir Hamed | Full-Stack Web Developer</p>
     </footer>
 
     <script src="script.js"></script>
