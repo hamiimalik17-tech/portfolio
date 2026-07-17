@@ -2,8 +2,7 @@
 const htmlEl = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 
-// Pehle check karo user ne pehle se koi preference save ki hai ya nahi,
-// warna system (OS) ki dark/light setting follow karo
+// Check saved preference first, otherwise follow system (OS) setting
 const savedTheme = localStorage.getItem('theme');
 const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
@@ -32,8 +31,8 @@ navToggle.addEventListener('click', () => {
 });
 
 // ===== Nav Link Click Animation =====
-// Click hote hi: 1) blurry glass pill us link ke peeche animate ho ke aati hai
-//                2) ek ripple effect click point se expand hota hai
+// On click: 1) the glass pill slides behind the clicked link
+//           2) a ripple expands from the click point
 const navIndicator = document.getElementById('navIndicator');
 const navLinks = navMenu.querySelectorAll('a');
 
@@ -42,9 +41,9 @@ function moveIndicatorTo(link){
     navIndicator.style.width = link.offsetWidth + 'px';
     navIndicator.classList.add('show');
 
-    // 'pop' animation dobara chalane ke liye class ko reset karte hain
+    // reset the 'pop' class so the animation can replay
     navIndicator.classList.remove('pop');
-    void navIndicator.offsetWidth; // reflow force karo taake animation restart ho
+    void navIndicator.offsetWidth; // force reflow to restart animation
     navIndicator.classList.add('pop');
 }
 
@@ -70,13 +69,13 @@ navLinks.forEach(link => {
         moveIndicatorTo(link);
         createRipple(e, link);
 
-        // Mobile par menu band ho jaye
+        // close mobile menu after a link is tapped
         navMenu.classList.remove('open');
         navToggle.setAttribute('aria-expanded', 'false');
     });
 });
 
-// Page load hote hi "Home" ko default active mark kar dete hain (agar desktop hai)
+// Mark "Home" active by default on load (desktop only)
 window.addEventListener('load', () => {
     if (window.innerWidth > 768 && navLinks.length){
         navLinks[0].classList.add('active');
@@ -84,7 +83,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// Window resize hone par indicator ki position update karo (active link ke sath)
+// Keep the indicator aligned with the active link on resize
 window.addEventListener('resize', () => {
     const activeLink = navMenu.querySelector('a.active');
     if (activeLink && window.innerWidth > 768){
@@ -94,10 +93,10 @@ window.addEventListener('resize', () => {
 });
 
 // ===== Scroll Reveal =====
-// '.reveal' wale elements screen par aate hi fade+slide in honge
+// '.reveal' elements fade+slide in as they enter the viewport
 const revealEls = document.querySelectorAll('.reveal');
 
-// Ek group (skills/projects cards) mein stagger delay dene ke liye index track karte hain
+// Stagger delay within a group (skills/projects cards)
 revealEls.forEach((el, i) => {
     el.style.transitionDelay = (i % 4) * 0.1 + 's';
 });
@@ -106,7 +105,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-            revealObserver.unobserve(entry.target); // ek dafa reveal ho gaya, bas
+            revealObserver.unobserve(entry.target); // reveal once, then stop watching
         }
     });
 }, { threshold: 0.15 });
