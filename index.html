@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasir Hamed - Frontend Web Developer Portfolio</title>
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Yasir Hamed - Frontend Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS and JavaScript.">
+    <meta name="keywords" content="Yasir Hamed, Frontend Developer, Web Developer, HTML, CSS, JavaScript, Portfolio">
+    <meta name="author" content="Yasir Hamed">
+
+    <!-- Open Graph (social share preview) -->
+    <meta property="og:title" content="Yasir Hamed - Frontend Web Developer">
+    <meta property="og:description"
+        content="Modern, responsive and user-friendly websites built with HTML, CSS and JavaScript.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon - inline SVG monogram, koi image file download nahi karni padi -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A2A43'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232E7BFF' text-anchor='middle'%3EYH%3C/text%3E%3C/svg%3E">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Background Image lagane ke liye class */
+        .bg-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            /* Image screen par stretch nahi hogi */
+            z-index: -2;
+            /* Sabse peeche */
+
+            /* Blur control yahan se hoga */
+            filter: blur(0px);
+            /* Blur kam ya zyada karne ke liye px badlein */
+            opacity: 1;
+            /* Hamesha 0 se 1 ke beech rahe, "10" invalid tha */
+        }
+
+        /* Vignette / fade overlay - image ke upar, content ke peeche */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            /* clicks isse guzar jayen, image/buttons kaam karein */
+
+            /* Left side dense fade, right side pura transparent - theme ke hisaab se rang badalta hai */
+            background: linear-gradient(to right,
+                    var(--overlay-1) 0%,
+                    var(--overlay-2) 40%,
+                    var(--overlay-3) 100%);
+            transition: background 0.4s ease;
+        }
+
+        /* Taake text background ke upar bilkul clear nazar aaye */
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            /* Agar image load na ho to safe backup color */
+        }
+
+        .bg-background {
+            transition: opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        [data-theme="dark"] .bg-background {
+            opacity: 0.5;
+            filter: brightness(0.6);
+        }
+
+        /* Mobile par vignette pura solid kar dete hain warna text mushkil se dikhta hai */
+        @media (max-width: 768px) {
+            .bg-overlay {
+                background: var(--overlay-mobile);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="yasirhm.jpeg" class="bg-background" alt="Background Blur">
+    <div class="bg-overlay"></div>
+
+    <header>
+        <nav>
+            <h1>YH</h1>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="navMenu">
+                <span class="nav-indicator" id="navIndicator"></span>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div>
+                <img src="yasirh.jpeg" alt="Yasir Hamed">
+            </div>
+            <div>
+                <p>Hello, I'm</p>
+                <h2>Yasir Hamed</h2>
+                <h3>Frontend Web Developer</h3>
+                <p>
+                    I build modern, responsive and user-friendly websites
+                    using HTML, CSS and JavaScript.
+                </p>
+                <a href="#projects">View Projects</a>
+                <a href="#contact">Hire Me</a>
+                <a href="yasirhameedcvresume.pdf" download class="btn-resume">📄 Download CV</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="reveal">About Me</h2>
+            <p class="reveal">
+                I am a Frontend <strong>Web Developer</strong> who enjoys <br> creating
+                responsive and interactive websites <br> using HTML,
+                CSS and JavaScript.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2 class="reveal">Tech Stack</h2>
+            <article class="reveal">
+                <h3>HTML</h3>
+            </article>
+            <article class="reveal">
+                <h3>CSS</h3>
+            </article>
+            <article class="reveal">
+                <h3>JavaScript</h3>
+            </article>
+        </section>
+
+        <section id="projects">
+            <h2 class="reveal">My Projects</h2>
+            <article class="reveal">
+                <h3>Portfolio Website</h3>
+                <p>Personal responsive portfolio website.</p>
+            </article>
+            <article class="reveal">
+                <h3>Landing Page</h3>
+                <p>Modern and responsive landing page.</p>
+            </article>
+            <article class="reveal">
+                <h3>Business Website</h3>
+                <p>Responsive business website using HTML, CSS and JavaScript.</p>
+            </article>
+        </section>
+
+        <section id="contact">
+            <h2 class="reveal">Contact Me</h2>
+            <div class="contact-card reveal">
+                <p>📞 <strong>Phone:</strong> 0335-6446210</p>
+                <p>📧 <strong>Email:</strong> hamiimalik84@gmail.com</p>
+
+                <div class="contact-buttons">
+                    <a href="tel:03356446210" class="btn call">📞 Call Now</a>
+                    <a href="mailto:hamiimalik84@gmail.com" class="btn email">✉️ Email Me</a>
+                    <a href="https://wa.me/923356446210" target="_blank" class="btn whatsapp">
+                        💬 WhatsApp
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/yasir-hameed-b5956b418" target="_blank"
+                        rel="noopener noreferrer" class="social-icon linkedin" aria-label="LinkedIn Profile">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                            <path
+                                d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/i.hamiimalik0?igsh=N2Z4ZDM4cXQ4bWtw" target="_blank" rel="noopener noreferrer"
+                        class="social-icon instagram" aria-label="Instagram Profile">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                            <path
+                                d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            ©️ 2026 Yasir Hamed | Frontend Web Developer
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
