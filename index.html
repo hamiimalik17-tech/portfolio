@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasir Hamed - Frontend Web Developer Portfolio</title>
+    <title>Yasir Hamed - Full-Stack Web Developer Portfolio</title>
 
     <!-- SEO -->
     <meta name="description"
-        content="Yasir Hamed - Frontend Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS and JavaScript.">
-    <meta name="keywords" content="Yasir Hamed, Frontend Developer, Web Developer, HTML, CSS, JavaScript, Portfolio">
+        content="Yasir Hamed - Full-Stack Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP.">
+    <meta name="keywords" content="Yasir Hamed, Full-Stack Developer, HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP Portfolio">
     <meta name="author" content="Yasir Hamed">
 
     <!-- Open Graph (social share preview) -->
-    <meta property="og:title" content="Yasir Hamed - Frontend Web Developer">
+    <meta property="og:title" content="Yasir Hamed - Full-Stack Web Developer">
     <meta property="og:description"
-        content="Modern, responsive and user-friendly websites built with HTML, CSS and JavaScript.">
+        content="Modern, responsive and user-friendly websites built with HTML, CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP">
     <meta property="og:type" content="website">
 
     <!-- Favicon - inline SVG monogram, koi image file download nahi karni padi -->
@@ -26,6 +26,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (Tech Stack icons ke liye) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 
@@ -92,6 +95,92 @@
                 background: var(--overlay-mobile);
             }
         }
+
+        /* ===================== Tech Stack - Stylish Grid ===================== */
+        #skills {
+            padding: 4rem 1.5rem;
+        }
+
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.25rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            padding: 1.8rem 1rem;
+            border-radius: 16px;
+            text-align: center;
+
+            background: var(--skill-card-bg, rgba(255, 255, 255, 0.55));
+            border: 1px solid var(--skill-card-border, rgba(10, 42, 67, 0.1));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .skill-card i,
+        .skill-card .skill-icon {
+            font-size: 2.6rem;
+            line-height: 1;
+            transition: transform 0.35s ease;
+        }
+
+        .skill-card h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 12px 28px rgba(46, 123, 255, 0.25);
+            border-color: #2E7BFF;
+        }
+
+        .skill-card:hover i,
+        .skill-card:hover .skill-icon {
+            transform: scale(1.15) rotate(-4deg);
+        }
+
+        /* Brand colors on hover for a lively touch */
+        .skill-card.html:hover i { color: #E44D26; }
+        .skill-card.css:hover i { color: #264DE4; }
+        .skill-card.js:hover i { color: #F0DB4F; }
+        .skill-card.node:hover i { color: #3C873A; }
+        .skill-card.jquery:hover i { color: #0769AD; }
+        .skill-card.php:hover i { color: #777BB4; }
+        .skill-card.bootstrap:hover i { color: #7952B3; }
+
+        [data-theme="dark"] .skill-card {
+            background: var(--skill-card-bg-dark, rgba(20, 25, 35, 0.55));
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        [data-theme="dark"] .skill-card h3 {
+            color: #f1f1f1;
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
@@ -132,7 +221,7 @@
                 <h3>Full-Stack Web Developer</h3>
                 <p>
                     I build modern, responsive and user-friendly websites
-                    using HTML5, CSS3 JavaScript, Node.js, JQUERY, PHP, BOOTSTRAP
+                    using HTML5, CSS3 JavaScript, Node.js, JQUERY, PHP, BOOTSTRAP.
                 </p>
                 <a href="#projects">View Projects</a>
                 <a href="#contact">Hire Me</a>
@@ -143,23 +232,44 @@
         <section id="about">
             <h2 class="reveal">About Me</h2>
             <p class="reveal">
-                I am a Frontend <strong>Web Developer</strong> who enjoys <br> creating
+                I am a Full-Stack Web Developr <strong>Web Developer</strong> who enjoys <br> creating
                 responsive and interactive websites <br> using HTML,
-                CSS and JavaScript.
+                CSS, JavaScript,  Node.js, JQUERY, PHP, BOOTSTRAP.
             </p>
         </section>
 
         <section id="skills">
             <h2 class="reveal">Tech Stack</h2>
-            <article class="reveal">
-                <h3>HTML</h3>
-            </article>
-            <article class="reveal">
-                <h3>CSS</h3>
-            </article>
-            <article class="reveal">
-                <h3>JavaScript</h3>
-            </article>
+            <div class="skills-grid">
+                <article class="skill-card html reveal">
+                    <i class="fa-brands fa-html5"></i>
+                    <h3>HTML</h3>
+                </article>
+                <article class="skill-card css reveal">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                </article>
+                <article class="skill-card js reveal">
+                    <i class="fa-brands fa-square-js"></i>
+                    <h3>JavaScript</h3>
+                </article>
+                <article class="skill-card node reveal">
+                    <i class="fa-brands fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </article>
+                <article class="skill-card jquery reveal">
+                    <span class="skill-icon" style="font-weight:700; font-size:1.6rem;">jQ</span>
+                    <h3>jQuery</h3>
+                </article>
+                <article class="skill-card php reveal">
+                    <i class="fa-brands fa-php"></i>
+                    <h3>PHP</h3>
+                </article>
+                <article class="skill-card bootstrap reveal">
+                    <i class="fa-brands fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                </article>
+            </div>
         </section>
 
         <section id="projects">
