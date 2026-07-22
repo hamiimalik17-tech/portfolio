@@ -6,23 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasir Hamed - Full Stack Web Developer Portfolio</title>
 
-    <!-- SEO -->
     <meta name="description"
         content="Yasir Hamed - Full Stack Web Developer building responsive web applications with modern frontend design and practical backend logic.">
     <meta name="keywords" content="Yasir Hamed, Full Stack Developer, Web Developer, HTML, CSS, JavaScript, Node.js, MongoDB, Portfolio">
     <meta name="author" content="Yasir Hamed">
 
-    <!-- Open Graph (social share preview) -->
     <meta property="og:title" content="Yasir Hamed - Full Stack Web Developer">
     <meta property="og:description"
         content="Modern web applications built with polished frontend design and practical backend functionality.">
     <meta property="og:type" content="website">
 
-    <!-- Favicon - inline SVG monogram, koi image file download nahi karni padi -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A2A43'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232E7BFF' text-anchor='middle'%3EYH%3C/text%3E%3C/svg%3E">
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +26,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Background Image lagane ke liye class */
         .bg-background {
             position: fixed;
             top: 0;
@@ -38,18 +33,11 @@
             width: 100vw;
             height: 100vh;
             object-fit: cover;
-            /* Image screen par stretch nahi hogi */
             z-index: -2;
-            /* Sabse peeche */
-
-            /* Blur control yahan se hoga */
             filter: blur(0px);
-            /* Blur kam ya zyada karne ke liye px badlein */
             opacity: 1;
-            /* Hamesha 0 se 1 ke beech rahe, "10" invalid tha */
         }
 
-        /* Vignette / fade overlay - image ke upar, content ke peeche */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -58,9 +46,6 @@
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            /* clicks isse guzar jayen, image/buttons kaam karein */
-
-            /* Left side dense fade, right side pura transparent - theme ke hisaab se rang badalta hai */
             background: linear-gradient(to right,
                     var(--overlay-1) 0%,
                     var(--overlay-2) 40%,
@@ -68,13 +53,11 @@
             transition: background 0.4s ease;
         }
 
-        /* Taake text background ke upar bilkul clear nazar aaye */
         body {
             position: relative;
             margin: 0;
             padding: 0;
             background-color: var(--color-bg);
-            /* Agar image load na ho to safe backup color */
         }
 
         .bg-background {
@@ -86,7 +69,6 @@
             filter: brightness(0.6);
         }
 
-        /* Mobile par vignette pura solid kar dete hain warna text mushkil se dikhta hai */
         @media (max-width: 768px) {
             .bg-overlay {
                 background: var(--overlay-mobile);
