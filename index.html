@@ -4,39 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0A2A43">
-    <title>Yasir Hamed - Full-Stack Web Developer Portfolio</title>
+    <title>Yasir Hamed - Full Stack Web Developer Portfolio</title>
 
     <!-- SEO -->
     <meta name="description"
-        content="Yasir Hamed - Full-Stack Web Developer specializing in modern, responsive and user-friendly websites built with HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap.">
-    <meta name="keywords" content="Yasir Hamed, Full-Stack Developer, HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap Portfolio">
+        content="Yasir Hamed - Full Stack Web Developer building responsive web applications with modern frontend design and practical backend logic.">
+    <meta name="keywords" content="Yasir Hamed, Full Stack Developer, Web Developer, HTML, CSS, JavaScript, Node.js, MongoDB, Portfolio">
     <meta name="author" content="Yasir Hamed">
 
     <!-- Open Graph (social share preview) -->
-    <meta property="og:title" content="Yasir Hamed - Full-Stack Web Developer">
+    <meta property="og:title" content="Yasir Hamed - Full Stack Web Developer">
     <meta property="og:description"
-        content="Modern, responsive and user-friendly websites built with HTML, CSS, JavaScript, Node.js, jQuery, PHP, Bootstrap.">
+        content="Modern web applications built with polished frontend design and practical backend functionality.">
     <meta property="og:type" content="website">
 
-    <!-- Favicon - inline SVG monogram, no image file needed -->
+    <!-- Favicon - inline SVG monogram, koi image file download nahi karni padi -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A2A43'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232E7BFF' text-anchor='middle'%3EYH%3C/text%3E%3C/svg%3E">
 
-    <!-- Google Fonts -->
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome (tech stack icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Background Image lagane ke liye class */
+        .bg-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            /* Image screen par stretch nahi hogi */
+            z-index: -2;
+            /* Sabse peeche */
+
+            /* Blur control yahan se hoga */
+            filter: blur(0px);
+            /* Blur kam ya zyada karne ke liye px badlein */
+            opacity: 1;
+            /* Hamesha 0 se 1 ke beech rahe, "10" invalid tha */
+        }
+
+        /* Vignette / fade overlay - image ke upar, content ke peeche */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            /* clicks isse guzar jayen, image/buttons kaam karein */
+
+            /* Left side dense fade, right side pura transparent - theme ke hisaab se rang badalta hai */
+            background: linear-gradient(to right,
+                    var(--overlay-1) 0%,
+                    var(--overlay-2) 40%,
+                    var(--overlay-3) 100%);
+            transition: background 0.4s ease;
+        }
+
+        /* Taake text background ke upar bilkul clear nazar aaye */
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            /* Agar image load na ho to safe backup color */
+        }
+
+        .bg-background {
+            transition: opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        [data-theme="dark"] .bg-background {
+            opacity: 0.5;
+            filter: brightness(0.6);
+        }
+
+        /* Mobile par vignette pura solid kar dete hain warna text mushkil se dikhta hai */
+        @media (max-width: 768px) {
+            .bg-overlay {
+                background: var(--overlay-mobile);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <img src="yasirhm.jpeg" class="bg-background" alt="" aria-hidden="true">
+    <img src="yasirhm.jpeg" class="bg-background" alt="Background Blur">
     <div class="bg-overlay"></div>
 
     <header>
@@ -61,101 +122,230 @@
     </header>
 
     <main>
-        <section id="home">
-            <div class="home-photo">
-                <img src="yasirh.jpeg" alt="Portrait of Yasir Hamed">
+        <section id="home" class="hero-section">
+            <div class="hero-image-wrap reveal">
+                <img src="yasirh.jpeg" alt="Yasir Hamed">
+                <span class="availability-badge">Available for freelance & full-time roles</span>
             </div>
-            <div>
-                <p class="eyebrow">Hello, I'm</p>
-                <h2>Yasir Hamed</h2>
-                <h3>Full-Stack Web Developer</h3>
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Full Stack Developer • Frontend & Backend</p>
+                <h2>Building complete digital products from concept to deployment.</h2>
+                <h3>Creating fast, responsive experiences with practical backend logic.</h3>
                 <p>
-                    I build modern, responsive and user-friendly websites
-                    using HTML5, CSS3, JavaScript, Node.js, jQuery, PHP and Bootstrap.
+                    I design and develop modern web applications with clean frontend interfaces,
+                    strong user experience, and reliable backend integrations using HTML, CSS,
+                    JavaScript, React, PHP, Bootstrap, Node.js, and database-driven workflows.
                 </p>
                 <div class="hero-actions">
                     <a href="#projects">View Projects</a>
                     <a href="#contact">Hire Me</a>
-                    <a href="yasirhamedresume.pdf" download class="btn-resume">📄 Download CV</a>
+                    <a href="Yasir_Hamed_Resume_FullStack.pdf" download class="btn-resume">📄 Download CV</a>
+                </div>
+                <div class="mini-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Core full-stack tools</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Responsive product thinking</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Delivery-focused mindset</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="about">
-            <h2 class="reveal">About Me</h2>
-            <p class="reveal">
-                I'm a Full-Stack <strong>Web Developer</strong> who enjoys
-                creating responsive and interactive websites using
-                HTML, CSS, JavaScript, Node.js, jQuery, PHP and Bootstrap.
-            </p>
+            <div class="section-heading reveal">
+                <p class="section-tag">About Me</p>
+                <h2>Full-stack development with clean UX, strong code, and business impact.</h2>
+            </div>
+            <div class="about-grid">
+                <article class="about-card reveal">
+                    <p>
+                        I am a <strong>Full Stack Web Developer</strong> who builds complete web experiences,
+                        from polished interfaces to functional backend logic. I focus on creating products
+                        that are visually professional, intuitive to use, and reliable in real-world use.
+                    </p>
+                </article>
+                <article class="about-card reveal">
+                    <ul class="feature-list">
+                        <li>Responsive frontends that feel modern on every device</li>
+                        <li>Backend-ready development for data handling and application flow</li>
+                        <li>Clean architecture with a strong emphasis on usability and performance</li>
+                    </ul>
+                </article>
+            </div>
         </section>
 
         <section id="skills">
-            <h2 class="reveal">Tech Stack</h2>
+            <div class="section-heading reveal">
+                <p class="section-tag">Tech Stack</p>
+                <h2>Tools I use to build polished, end-to-end web products.</h2>
+            </div>
             <div class="skills-grid">
-                <article class="skill-card html reveal">
-                    <i class="fa-brands fa-html5"></i>
-                    <h3>HTML</h3>
+                <article class="reveal skill-card">
+                    <h3>HTML5</h3>
+                    <p>Semantic, accessible structure for scalable and user-friendly layouts.</p>
                 </article>
-                <article class="skill-card css reveal">
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <h3>CSS</h3>
+                <article class="reveal skill-card">
+                    <h3>CSS3</h3>
+                    <p>Responsive styling, polished UI systems, and modern visual design.</p>
                 </article>
-                <article class="skill-card js reveal">
-                    <i class="fa-brands fa-square-js"></i>
+                <article class="reveal skill-card">
                     <h3>JavaScript</h3>
+                    <p>Interactive logic, real-time behavior, and stronger user engagement.</p>
                 </article>
-                <article class="skill-card node reveal">
-                    <i class="fa-brands fa-node-js"></i>
-                    <h3>Node.js</h3>
+                <article class="reveal skill-card">
+                    <h3>React</h3>
+                    <p>Component-driven frontend development for scalable, modern interfaces.</p>
                 </article>
-                <article class="skill-card jquery reveal">
-                    <span class="skill-icon">jQ</span>
-                    <h3>jQuery</h3>
-                </article>
-                <article class="skill-card php reveal">
-                    <i class="fa-brands fa-php"></i>
-                    <h3>PHP</h3>
-                </article>
-                <article class="skill-card bootstrap reveal">
-                    <i class="fa-brands fa-bootstrap"></i>
+                <article class="reveal skill-card">
                     <h3>Bootstrap</h3>
+                    <p>Fast, responsive UI development with clean and consistent design systems.</p>
+                </article>
+                <article class="reveal skill-card">
+                    <h3>PHP</h3>
+                    <p>Backend application development with dynamic server-side processing.</p>
+                </article>
+                <article class="reveal skill-card">
+                    <h3>Node.js</h3>
+                    <p>Server-side application logic for building scalable web services.</p>
+                </article>
+                <article class="reveal skill-card">
+                    <h3>MongoDB</h3>
+                    <p>Efficient data handling and database-driven application development.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <div class="section-heading reveal">
+                <p class="section-tag">Expertise</p>
+                <h2>Frontend, backend, database, and framework strengths.</h2>
+            </div>
+            <div class="expertise-grid">
+                <article class="expertise-card reveal">
+                    <h3>Frontend</h3>
+                    <p>Responsive layouts, interactive UI, polished visual systems, and conversion-oriented design.</p>
+                </article>
+                <article class="expertise-card reveal">
+                    <h3>Backend</h3>
+                    <p>Server-side logic, business workflow handling, and application process integration.</p>
+                </article>
+                <article class="expertise-card reveal">
+                    <h3>Database</h3>
+                    <p>Structured data handling with practical database-driven application development.</p>
+                </article>
+                <article class="expertise-card reveal">
+                    <h3>Frameworks</h3>
+                    <p>React for modern interfaces, Bootstrap for fast UI scaffolding, and scalable web architecture.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-heading reveal">
+                <p class="section-tag">Experience</p>
+                <h2>Building professional digital solutions with consistency and purpose.</h2>
+            </div>
+            <div class="timeline-grid">
+                <article class="timeline-card reveal">
+                    <span class="timeline-year">2024</span>
+                    <h3>Frontend & Full-Stack Web Development</h3>
+                    <p>Focused on creating polished, responsive interfaces and dependable web applications using modern frontend and backend concepts.</p>
+                </article>
+                <article class="timeline-card reveal">
+                    <span class="timeline-year">2025</span>
+                    <h3>Project-Based Problem Solving</h3>
+                    <p>Built practical, business-oriented web experiences that emphasize usability, visual quality, and user trust.</p>
+                </article>
+                <article class="timeline-card reveal">
+                    <span class="timeline-year">2026</span>
+                    <h3>Professional Portfolio & Product Presentation</h3>
+                    <p>Developed a refined personal brand presence to communicate technical skills, reliability, and strong communication through design.</p>
                 </article>
             </div>
         </section>
 
         <section id="projects">
-            <h2 class="reveal">My Projects</h2>
-            <div class="projects-grid">
-                <article class="reveal">
-                    <h3>Portfolio Website</h3>
-                    <p>Personal responsive portfolio website.</p>
+            <div class="section-heading reveal">
+                <p class="section-tag">Projects</p>
+                <h2>Selected work that demonstrates real product thinking and business value.</h2>
+            </div>
+            <div class="project-grid">
+                <article class="project-card reveal">
+                    <span class="project-badge">Brand Showcase</span>
+                    <h3>Professional Portfolio Website</h3>
+                    <p>A personal brand website designed to present skills, credibility, and hiring-ready communication.</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
                 </article>
-                <article class="reveal">
-                    <h3>Landing Page</h3>
-                    <p>Modern and responsive landing page.</p>
+                <article class="project-card reveal">
+                    <span class="project-badge">Marketing UI</span>
+                    <h3>Modern Landing Page</h3>
+                    <p>A polished marketing page focused on user clarity, visual appeal, and engaging first impressions.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Bootstrap</span>
+                        <span>Responsive UI</span>
+                    </div>
                 </article>
-                <article class="reveal">
-                    <h3>Business Website</h3>
-                    <p>E-commerce style storefront with product listings.</p>
-                    <a href="https://hami-store.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
-                        <img src="project.jpeg" alt="Business e-commerce storefront preview" loading="lazy">
-                        <span>Visit Site →</span>
+                <article class="project-card reveal project-showcase">
+                    <span class="project-badge">Live Project</span>
+                    <h3>Business Storefront</h3>
+                    <a href="https://hami-store.netlify.app/" target="_blank" rel="noopener noreferrer">
+                        <img src="project.jpeg" alt="E-Commerce Store Preview">
                     </a>
+                    <p>Featured e-commerce style storefront with a professional product presentation and customer-focused layout.</p>
+                    <div class="project-tags">
+                        <span>Bootstrap</span>
+                        <span>UI/UX</span>
+                        <span>Business Website</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://hami-store.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                    </div>
                 </article>
             </div>
         </section>
 
         <section id="contact">
-            <h2 class="reveal">Contact Me</h2>
+            <div class="section-heading reveal">
+                <p class="section-tag">Contact</p>
+                <h2>Let’s discuss your next web project.</h2>
+            </div>
             <div class="contact-card reveal">
-                <p><strong>Phone:</strong> 0335-6446210</p>
-                <p><strong>Email:</strong> hamiimalik84@gmail.com</p>
+                <div class="contact-intro">
+                    <p>
+                        Open to freelance opportunities, contract work, and full-time developer roles.
+                        If you need a polished, reliable, and business-focused web presence, I’d be glad to connect.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:03356446210">0335-6446210</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:hamiimalik84@gmail.com">hamiimalik84@gmail.com</a>
+                    </div>
+                </div>
 
                 <div class="contact-buttons">
-                    <a href="tel:03356446210" class="btn call">Call Now</a>
-                    <a href="mailto:hamiimalik84@gmail.com" class="btn email">Email Me</a>
-                    <a href="https://wa.me/923279717049" target="_blank" rel="noopener noreferrer" class="btn whatsapp">WhatsApp</a>
+                    <a href="tel:03356446210" class="btn call">📞 Call Now</a>
+                    <a href="mailto:hamiimalik84@gmail.com" class="btn email">✉️ Email Me</a>
+                    <a href="https://wa.me/923279717049" target="_blank" rel="noopener noreferrer" class="btn whatsapp">
+                        💬 WhatsApp
+                    </a>
                 </div>
 
                 <div class="social-links">
@@ -179,7 +369,9 @@
     </main>
 
     <footer>
-        <p>© 2026 Yasir Hamed | Full-Stack Web Developer</p>
+        <p>
+            ©️ 2026 Yasir Hamed | Full Stack Web Developer
+        </p>
     </footer>
 
     <script src="script.js"></script>
